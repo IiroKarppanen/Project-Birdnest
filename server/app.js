@@ -16,7 +16,7 @@ const io = socketIO(5000, {
 // Connect to database
 const dbURL = `mongodb+srv://${process.env.MONGOUSERNAME}:${process.env.MONGOPASSWORD}@cluster0.kpgcpls.mongodb.net/perimeterDB?retryWrites=true&w=majority`
 mongoose.set('strictQuery', true);
-mongoose.connect(dbURL)
+mongoose.connect(dbURL).then(() => {updateDB(null)})
 
 
 // Establish socket connection to client(s)
@@ -91,6 +91,6 @@ function updateDB(lastResponse) {
       .catch(error => { console.log(error) })
   }
   
-  updateDB(null);
+
     
 
