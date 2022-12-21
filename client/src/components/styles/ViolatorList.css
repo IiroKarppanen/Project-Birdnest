@@ -13,17 +13,19 @@
 } 
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(16, 29, 44, 0.436);
+  background: rgba(16, 29, 44, 0.573);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.062);
+  background: rgba(255, 255, 255, 0.105);
+  border-radius: 15px;
+  height: 30%;
 }
 
 /* Handle on hover */

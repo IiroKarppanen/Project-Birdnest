@@ -31,7 +31,7 @@ const violatorSchema = new Schema({
 
 })
 
-const Violator = mongoose.model('drone', violatorSchema)
+const Violator = mongoose.model('violator', violatorSchema)
 
 
 module.exports = Violator;

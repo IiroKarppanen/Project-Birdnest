@@ -20,7 +20,7 @@ mongoose.connect(dbURL).then(() => {updateDB(null)})
 
 
 // Establish socket connection to client(s)
-io.on('connection', (socket) => {
+io.on('connection', () => {
   Violator.find().sort({ timestamp: -1 })
     .then(violators => {
       fetchData.droneData().then(alldrones => {
@@ -28,6 +28,7 @@ io.on('connection', (socket) => {
       })
     })
 })
+
 
 function updateDB(lastResponse) {
 
@@ -55,31 +56,23 @@ function updateDB(lastResponse) {
 
           if (distanceFromCenter <= 100000){
 
-            // Check if document for drone already exits and update it
-            Violator.findOneAndUpdate({droneSerialNumber: drone.serialNumber[0]}, {$set:{
+  
+            fetchData.pilotData(drone.serialNumber[0]).then((pilot) => {
+
+              // Update drone document or create new one if it doesn't exist yet
+              Violator.findOneAndUpdate({droneSerialNumber: drone.serialNumber[0]}, {
+              $set:{
               timestamp: new Date(), 
-              distance: (distanceFromCenter / 1000).toFixed(3)}}, 
-              {new: true}, (error, doc) => {
-
-                // If document for drone doesn't exist yet, create new one
-                if (doc == null || error){
-                  
-                  fetchData.pilotData(drone.serialNumber[0]).then((pilot) => {
-                    if (pilot != null) {
-                      const newViolator = new Violator({
-                        droneSerialNumber: drone.serialNumber[0],
-                        distance: (distanceFromCenter / 1000).toFixed(3),
-                        FirstName: pilot.firstName,
-                        LastName: pilot.lastName,
-                        PhoneNumber: pilot.phoneNumber,
-                        Email: pilot.email
-                      })
-
-                        newViolator.save()
-                    }
-                  })    
-                }
-            })       
+              FirstName: pilot.firstName,
+              LastName: pilot.lastName,
+              PhoneNumber: pilot.phoneNumber,
+              Email: pilot.email},
+              $min:{
+              distance: (distanceFromCenter / 1000).toFixed(3)}},
+              {upsert: true}, (error) => {
+                if (error) {console.log(error)}
+              })  
+            })        
           }
         })
       }

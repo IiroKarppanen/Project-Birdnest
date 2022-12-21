@@ -10,7 +10,8 @@ function App() {
   const [allDrones, setAllDrones] = useState([{}])
 
   useEffect(() => {
-  const socket = SocketIOClient('https://birdnest-server.onrender.com')
+  //const socket = SocketIOClient('https://birdnest-server.onrender.com')
+  const socket = SocketIOClient('http://localhost:5000')
     socket.on('data', (violators, alldrones) => {
       setViolators(violators)
       setAllDrones(alldrones)
