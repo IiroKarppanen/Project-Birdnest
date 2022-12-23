@@ -6,7 +6,7 @@ export const ViolatorList = (props) => {
   return (
     <div className='violators'>
         <h2>Recent Violators</h2>
-        <ul className="violator-list">
+        <ul>
             {props.violators.map((violator) => {
 
                 // Convert date to time
@@ -15,9 +15,9 @@ export const ViolatorList = (props) => {
                 
                 return(
                 <li>
-                    <h3 className="serialNumber">{violator.FirstName} {violator.LastName} </h3>
+                    <h3 className="serialNumber">{violator.FirstName} {violator.LastName} - {violator.droneSerialNumber}</h3>
                     <p className="snippet">Last sighting inside ndz - {timestamp}</p>
-                    <p className="snippet">Closest confirmed distance - {violator.distance}m</p>
+                    <p className="snippet">Closest distance from birdnest - {violator.distance}m</p>
                     <p className="snippet">Phone Number - {violator.PhoneNumber} </p>
                     <p className="snippet">Email - {violator.Email} </p>
                 </li>

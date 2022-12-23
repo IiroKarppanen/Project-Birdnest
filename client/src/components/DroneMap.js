@@ -25,19 +25,21 @@ export const DroneMap = (props) => {
   }
 
   return (
+    
     <div className="map-container" ref={mapRef}>
-        <div id="circle"></div>
-        <div id="title">No Drone Zone</div>
+        <div id="circle">
+          <div id="circle-title">No Drone Zone</div>
+        </div>
         {props.allDrones.map((drone) => {
             return(
               <span className="dot" style={{ 
               "--posX": `${"X -", (mapWidth / 500) * (drone.positionX / 1000)}px`, 
               "--posY": `${"X -", (mapWidth / 500) * (drone.positionY / 1000)}px`, 
               "--dotColor": `${defineDotColor(drone.positionX, drone.positionY)}`}}>
+              <h4>{drone.serialNumber}</h4>
               </span>
             )
         })}
     </div>
-  
   )
 }

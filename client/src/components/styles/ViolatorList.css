@@ -1,47 +1,46 @@
-.violator-list{ 
-    padding: 0;
-    margin: 0;
-    height: 90vh;
-    width: 100%;
-    overflow:hidden;
-    overflow-y:scroll;
-    float: right;
-    color: rgba(255, 255, 255, 0.696);
-    font-weight: 100;
-    list-style-type: none;
-
-} 
-
-::-webkit-scrollbar {
-  width: 6px;
+.violators {
+  height: 100%;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: rgba(16, 29, 44, 0.573);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.105);
-  border-radius: 15px;
-  height: 30%;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.228);
-}
-
-.scroll-color-auto {
-  scrollbar-color: auto;
-}
-.scroll-color-colors {
-  scrollbar-color: orange lightyellow;
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.696);
+  font-weight: 100;
+  float: right;
+  overflow-y:scroll;
+  overflow-x: hidden;
 }
 
 li {
-  margin-left: 30px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 2em;
   border-bottom: 1px solid rgba(255, 255, 255, 0.187);
+}
+
+li:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 600px){
+  ul{ 
+    white-space: nowrap;
+    overflow-x: scroll;  
+    overflow-y: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.187);
+  } 
+  
+  li {
+    display: inline-block;
+    padding: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.187);
+  }
 }
 
