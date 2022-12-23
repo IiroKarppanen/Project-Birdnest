@@ -9,7 +9,7 @@ module.exports = {
         return new Promise(resolve => {
             request(url, (error, response) => {
                 if (error) { resolve(null) }
-                parseString(response.body, function (error, result) {
+                parseString(response.body.toString(), function (error, result) {
                     if (error) { resolve(null)}
                     var drones = result.report.capture[0].drone
                     resolve(drones);
