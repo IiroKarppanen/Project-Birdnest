@@ -23,7 +23,7 @@ export const ViolatorList = (props) => {
                 </li>
                 )
             })}
-            
+          
         </ul>
     </div>
   )
