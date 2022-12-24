@@ -11,7 +11,7 @@ export const DroneMap = (props) => {
     }
   }, [mapRef])
 
-  // Keep track of map width
+  // Keep track of map width for drone position calculations
   window.addEventListener('resize', () => {
     if (mapRef.current != null) {
       setMapWidth(mapRef.current.offsetWidth)

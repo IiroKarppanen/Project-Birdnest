@@ -16,7 +16,6 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-
 }
 
 .list-component {
@@ -26,11 +25,14 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .content{ grid-template-columns: 100% }
+    .content{ 
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+    }
     .map-component{ order: 2; }
     .list-component{ 
         order: 1;
-        height: 30vh;
+        height: auto;
         border-left: 0px;
     }
 }
