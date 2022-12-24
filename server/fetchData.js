@@ -11,8 +11,7 @@ module.exports = {
                 if (error) { resolve(null) }
                 if (response != undefined ){
                     parseString(body, function (error, result) {
-                        if (error) { resolve(null)}
-                        if (typeof result != undefined) {
+                        if (result.toString().length != 0) {
                             var drones = result.report.capture[0].drone
                             resolve(drones);
                         }
