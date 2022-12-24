@@ -30,7 +30,7 @@
   height: 40%;
   border-radius: 100%;
   border: 1.5px solid rgba(244, 52, 52, 0.769);
-  background: transparent;
+  background: rgba(244, 52, 52, 0.04);
 }
 
 #circle-title{
