@@ -14,20 +14,21 @@ module.exports = {
                     });
                 }
                 else {resolve(null)}
-
             })
         })
     },
     pilotData: function (droneSerialNumber) {
         return new Promise(resolve => {
             request((url2 + droneSerialNumber),{json: true}, (error, response) => {
-                if (error) { resolve(null) }
-                resolve(response?.body) 
+                if (response?.body) {
+                    resolve(response.body) 
+                }
+                else { resolve(null) }      
             })
         })
     }
 }
 
-    
+
 
 
