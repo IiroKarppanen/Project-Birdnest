@@ -7,13 +7,15 @@ const url2 = "https://assignments.reaktor.com/birdnest/pilots/"
 module.exports = {
     droneData: function () {
         return new Promise(resolve => {
-            request(url, (error, response) => {
+            request(url, (error, response, body) => {
                 if (error) { resolve(null) }
-                parseString(response.body.toString(), function (error, result) {
-                    if (error) { resolve(null)}
-                    var drones = result.report.capture[0].drone
-                    resolve(drones);
-                });
+                if (response != undefined ){
+                    parseString(body, function (error, result) {
+                        if (error) { resolve(null)}
+                        var drones = result.report.capture[0].drone
+                        resolve(drones);
+                    });
+                }
             })
         })
     },
