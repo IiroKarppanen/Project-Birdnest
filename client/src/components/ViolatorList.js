@@ -3,9 +3,14 @@ import "./styles/ViolatorList.css"
 
 export const ViolatorList = (props) => {
 
+  const Spinner = () => <div className="loader"></div>;
+
   return (
     <div className='violators'>
         <h2>Recent Violators</h2>
+        {(props.violators.length < 2)
+        ? <div className='spinner'><Spinner/></div>
+        :
         <ul>
             {props.violators.map((violator) => {
 
@@ -14,7 +19,7 @@ export const ViolatorList = (props) => {
                 let timestamp = date.toLocaleTimeString('fi-FI').replace(".", ":").replace(".", ":")
                 
                 return(
-                <li>
+                <li key={violator.droneSerialNumber}>
                     <h3 className="serialNumber">{violator.FirstName} {violator.LastName} - {violator.droneSerialNumber}</h3>
                     <p className="snippet">Last sighting inside ndz - {timestamp}</p>
                     <p className="snippet">Closest distance from birdnest - {violator.distance}m</p>
@@ -22,9 +27,9 @@ export const ViolatorList = (props) => {
                     <p className="snippet">Email - {violator.Email} </p>
                 </li>
                 )
-            })}
-          
+            })}          
         </ul>
+        }
     </div>
   )
 }

@@ -9,6 +9,8 @@ function App() {
   const [violators, setViolators] = useState([{}])
   const [allDrones, setAllDrones] = useState([{}])
 
+  const Spinner = () => <div className="loader"></div>;
+
   useEffect(() => {
   const socket = SocketIOClient('https://birdnest-server.onrender.com')
     socket.on('data', (violators, alldrones) => {
@@ -25,16 +27,16 @@ function App() {
       <h1>NDZ-Perimeter watch</h1>
 
       <div className="content">
-
+      
         <div className="map-component">
           <div className='map-title'>
             <h5>Snapshot Area</h5>
           </div>
-            <DroneMap allDrones={allDrones}/>
+          <DroneMap allDrones={allDrones}/>
         </div>
 
         <div className="list-component">
-          <ViolatorList violators={violators}/>
+          <ViolatorList violators={violators}/>          
         </div>
       </div>
     </div>
