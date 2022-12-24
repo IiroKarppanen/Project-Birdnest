@@ -12,7 +12,7 @@ module.exports = {
                 if (response != undefined ){
                     parseString(body, function (error, result) {
                         if (error) { resolve(null)}
-                        if (result != undefined) {
+                        if (typeof result != undefined) {
                             var drones = result.report.capture[0].drone
                             resolve(drones);
                         }
