@@ -8,12 +8,13 @@ module.exports = {
     droneData: function () {
         return new Promise(resolve => {
             request(url, (error, response) => {
-                if (error) { resolve(null) }
                 if (response?.body){
                     parseString(response.body, function (error, result) {
                         resolve(result?.report?.capture[0]?.drone)
                     });
                 }
+                else {resolve(null)}
+
             })
         })
     },
@@ -27,6 +28,6 @@ module.exports = {
     }
 }
 
-
+    
 
 
