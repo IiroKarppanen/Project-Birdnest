@@ -1,6 +1,5 @@
 html {
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 body {
@@ -88,7 +87,10 @@ p{
 }
 
 
- @media only screen and (max-width: 600px) {html { font-size: 3vw; }}
+ @media only screen and (max-width: 600px) {html { 
+  font-size: 3vw;
+  overflow-y: hidden;
+ }}
 
  @media only screen and (min-width: 600px) { html { font-size: 1.5vw; } }
  
