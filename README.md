@@ -10,11 +10,16 @@ You may visit the project at: https://ndz-perimeter.vercel.app/
 Client -> Frontend made with ReactJs, Hosted with [Vercel](https://vercel.com) <br />
 Server -> Backend made with Nodejs, Hosted with [Render](https://render.com/)
 
-On server side, drone data is fetched from the [api](https://assignments.reaktor.com/birdnest/drones) with the help of request and xml2js libraries. If the drone is inside the no drone zone, another request is made to get the pilot data and then it's saved to mongodb database that contains all the violators from past 10 minutes. 
+On server side, I have created a function that is constantly fetching xml data from the [api](https://assignments.reaktor.com/birdnest/drones), which is then converted into a javascript object with the help of xml2js package. The function maps the object and finds the drones that are inside the "no drone zone", if a drone is inside the ndz, another request is made to get pilot data and then it's saved to mongoDB database that contains all violators from past 10 minutes.
 
-I have used socket.io library to set up a socket between the React frontend and Nodejs backend that constantly sends the data of all drones and pilot data of violators to React frontend.
+I have used socket.io to set up a socket between the React frontend and Nodejs backend that constantly sends the data of all drones and pilot data of violators to React frontend.
 
 <br />
 <br />
 
-<img width="1080" alt="thepage" src="https://user-images.githubusercontent.com/39335935/209451111-8e5dc41b-0487-4bce-845c-7145ee31bc0e.png">
+<img width="1080" alt="table" src="https://user-images.githubusercontent.com/39335935/209678189-d421006c-1e0a-4ffd-9ef6-541f06ecc915.png">
+
+<br />
+<br />
+
+<img width="1080" alt="map" src="https://user-images.githubusercontent.com/39335935/209678203-b3453fde-9662-4ee6-b19e-eca490e84a22.png">
