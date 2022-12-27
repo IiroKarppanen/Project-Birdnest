@@ -20,6 +20,15 @@ mongoose.set('strictQuery', true);
 mongoose.connect(dbURL).then(() => {updateDB(null)})
 
 
+io.on('connection', () => {
+  Violator.find().sort({ timestamp: -1 })
+    .then(violators => {
+      fetchData.droneData().then(alldrones => {
+        io.emit('data', violators, alldrones)
+      })
+    })
+})
+
 
 function updateDB(lastResponse) {
 
