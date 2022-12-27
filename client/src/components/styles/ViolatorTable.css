@@ -1,0 +1,26 @@
+.table-div {  
+  height: 100%;
+  overflow-y: scroll;
+}
+
+table {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.015);
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+  }
+
+
+table td, table th {
+  border: 1px solid rgba(221, 221, 221, 0.219);
+  padding: 10px;
+}
+
+table th:hover {
+  cursor: pointer;
+  background-color: rgba(221, 221, 221, 0.08);
+}
+
+table tr:hover {
+  background-color: rgba(221, 221, 221, 0.06);
+}

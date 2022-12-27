@@ -1,17 +1,15 @@
 html {
-  overflow-x: hidden;
-  overflow-y: hidden;
   margin: 0;
 }
 
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
   color: rgba(255, 255, 255, 0.781);
  
   background: rgb(37,37,37);
   background: linear-gradient(30deg, rgba(37,37,37,1) 0%, rgba(31,48,75,1) 50%, rgba(37,37,37,1) 100%);
-
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -26,57 +24,42 @@ code {
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
+  position: relative;
+  text-align: center;
   font-size: 2rem;
   font-weight: 300;
+  height: 10%;
+  margin-top: 2rem;
 }
+
 h2 {
-  text-align: center;
-  justify-content: center;
-  font-size: 1.4em;
-  font-weight: 200;
+  font-size: 0.9rem;
+  font-weight: 300;
+  white-space: nowrap
 }
 
 h3 {
-  font-size: 1.1rem;
-  font-weight: 400;
-}
-
-h4 {
-  font-size: 0.7rem;
-  font-weight: 300;
-  white-space: nowrap;
-}
-
-h5 {
-  font-size: 1.4em;
-  font-weight: 200;
   text-align: center;
-  padding: 0;
-  margin-bottom: 15px;
-}
-
-p{
   font-size: 1.1rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 
+
+/* Table scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
-  height: 0.3vh;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(16, 29, 44, 0.573);
+  background: transparent
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.105);
-  border-radius: 15px;
-  height: 30%;
+  border-radius: 25px;
+  height: auto;
 }
 
 /* Handle on hover */
@@ -84,34 +67,30 @@ p{
   background: rgba(255, 255, 255, 0.228);
 }
 
-.scroll-color-auto {
-  scrollbar-color: auto;
-}
+/* Scale font to suitable size for different screens */
+@media only screen and (max-width: 600px) { html { font-size: 3vw; } }
 
+@media only screen and (min-width: 600px) { html { font-size: 1.5vw; } }
 
- @media only screen and (max-width: 600px) {html { 
-  font-size: 3vw;
-  overflow-y: auto;
- }}
-
- @media only screen and (min-width: 600px) { html { font-size: 1.5vw; } }
- 
- @media only screen and (min-width: 800px) { html { font-size: 1vw; } }
+@media only screen and (min-width: 800px) { html { font-size: 1vw; } }
  
 
- .loader {
-  border: 2px solid #ffffff0a;
-  border-top: 2px solid rgba(0, 0, 0, 0.057);
+/* Loading Spinner*/
+.loader {
+  border: 2px solid rgba(221, 221, 221, 0.18);
+  border-top: 2px solid rgba(221, 221, 221, 0.05);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 6rem;
+  height: 6rem;
   animation: spin 1s linear infinite;
+  margin-top: 20%;
 }
 
+/* Animate spinner to spin */
 @keyframes spin {
-0% {
-  transform: rotate(0deg);
-}
-100% {
-  transform: rotate(360deg);
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
 }} 

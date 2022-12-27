@@ -1,38 +1,45 @@
 .App {
     height: 100vh;
+    display: flex;  
+    justify-content: center;
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    height: 90vh;
-    width: 100vw;
+    height: 80vh;
+    width: 70%;
 }
 
-.map-component {
-    order: 1;
+.map-div{
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px){
+    .content{width: 90%;}
+}
+
+.toggle-div {
     position: relative;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 15px; 
 }
 
-.list-component {
-    order: 2;
-    height: 95vh;
-    border-left: 1px solid rgba(255, 255, 255, 0.187);
+button {
+    width: 10rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border: 1px solid rgba(221, 221, 221, 0.419);
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.781);
 }
 
-@media only screen and (max-width: 600px) {
-    .content{ 
-        grid-template-columns: 100%;
-        grid-template-rows: auto;
-    }
-    .map-component{ order: 2; }
-    .list-component{ 
-        order: 1;
-        height: auto;
-        border-left: 0px;
-    }
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.loading-div {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    border: 1px solid rgba(221, 221, 221, 0.219);
+    backdrop-filter: blur(12px);
 }
