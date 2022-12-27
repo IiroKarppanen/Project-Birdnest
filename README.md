@@ -12,7 +12,7 @@ Server -> Backend made with NodeJS, Hosted with [Render](https://render.com/)
 
 On server side, I have created a function that is constantly fetching xml data from the [api](https://assignments.reaktor.com/birdnest/drones), which is then converted into a javascript object with the help of [xml2js](https://www.npmjs.com/package/xml2js) package. The function goes trough the drone data and determines which drones are inside the "no drone zone". If a drone is inside the ndz, a request is made to get pilot data and then it's saved to mongoDB database that contains all violators from past 10 minutes.
 
-I have used [socket.io](https://www.npmjs.com/package/socket.io) package to set up a socket between the React frontend and Node backend that constantly sends the data of all drones and pilot data of violators to React frontend. On frontend side a simple table and map is constructed from the data.
+I have used [socket.io](https://www.npmjs.com/package/socket.io) package to set up a socket between the React frontend and Node backend that constantly sends the drone and violator data to React frontend. On frontend side a simple table and map is constructed from the data.
 
 <br />
 <br />
