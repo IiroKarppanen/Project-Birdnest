@@ -29,8 +29,6 @@ export const ViolatorTable = (props) => {
     }
 
     const handleScroll = (e) => {
-        console.log(theadRef.current.clientHeight)
-        console.log(theadRef.current.clientWidth)
         if (e.target.scrollTop > 0) {setScrollingTable(true)}
         else {setScrollingTable(false)}
     }
